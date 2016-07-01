@@ -1,0 +1,178 @@
+% \iffalse meta-comment
+%
+%% File: pdfboxes.dtx Copyright (C) 2013-2016 Tobias Weh
+%%
+%% It may be distributed and/or modified under the conditions of the
+%% LaTeX Project Public License (LPPL), either version 1.3c of this
+%% license or (at your option) any later version.  The latest version
+%% of this license is in the file
+%%
+%%    http://www.latex-project.org/lppl.txt
+%%
+%<*driver|package>
+% The version of expl3 required is tested as early as possible, as
+% some really old versions do not define \ProvidesExplPackage.
+\RequirePackage{expl3}[2016/01/03]
+%<package>\@ifpackagelater{expl3}{2016/01/03}
+%<package>  {}
+%<package>  {%
+%<package>    \PackageError{pdfboxes}{Support package l3kernel too old}
+%<package>      {%
+%<package>        Please install an up to date version of l3kernel\MessageBreak
+%<package>        using your TeX package manager or from CTAN.\MessageBreak
+%<package>        \MessageBreak
+%<package>        Loading xparse will abort!%
+%<package>      }%
+%<package>    \endinput
+%<package>  }
+\def\pdfboxesFileName{pdfboxes}
+\def\pdfboxesFileDescription{Set up PDF boxes, e.g. for cropping}
+\def\pdfboxesFileDate{2016/07/01}
+\def\pdfboxesFileVersion{1.0}
+%</driver|package>
+%<*driver>
+\documentclass[full,english]{l3doc}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{etoolbox}
+
+\usepackage{babel}
+
+\usepackage{xparse}
+\usepackage{xcolor}
+ \definecolor{spotcolor}{HTML}{1190BA}
+
+\hypersetup{
+	allcolors=spotcolor,
+}
+
+\usepackage{longtable,tabu,booktabs}
+\renewcommand{\arraystretch}{1.3}
+\usepackage[bottom]{footmisc}
+
+\usepackage{microtype}
+\usepackage{tgpagella}
+\usepackage[scale=0.875]{tgheros}
+\usepackage{ascii}
+
+\edef\pluschar{+}
+
+\AtBeginDocument{
+	\DeleteShortVerb{\|}
+	\DeleteShortVerb{\"}
+	\MakeShortVerb{\+}
+}
+
+\makeatletter
+\def\meta@font@select{\itshape\rmfamily}
+\makeatother
+
+\IndexPrologue{
+	\section*{Index}
+	\addcontentsline{toc}{section}{Index}
+	The italic numbers denote the pages where the 
+	corresponding entry is described, 
+	numbers underlined point to the definition, 
+	all others indicate the places where it is used.
+}
+\GlossaryPrologue{
+	\section{Change History}
+	{\GlossaryParms\ttfamily\hyphenchar\font=`\-}
+}
+\AtBeginDocument{\renewcommand*{\glossaryname}{Change History}}
+
+\def\pdfboxes/{{%
+   \sffamily\bfseries\color{spotcolor}%
+   pdfboxes%
+}}
+\def\pdfboxesLogo/{{%
+   \sffamily\bfseries
+   \fboxsep=0.2em
+   \fboxrule=0.6pt
+   \fbox{%
+      \fcolorbox{spotcolor}{spotcolor}{\color{white}\strut pdf}%
+      \fcolorbox{spotcolor}{white}{\color{spotcolor}\strut boxes}%
+   }%
+}}
+\newrobustcmd{\Star}{\meta{\textup{\texttt{*}}}}
+\newrobustcmd{\mail}[1]{\href{mailto:#1}{#1}}
+
+
+\begin{document}
+  \DocInput{\pdfboxesFileName.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+%
+% \title{The \pdfboxesLogo/ package}
+%
+% \author{Tobias Weh\thanks{URL: \url{http://tobiw.de/en}, Mail: \mail{mail@tobiw.de}}}
+%
+% \date{Version \pdfboxesFileVersion\ -- Released \pdfboxesFileDate}
+%
+% \maketitle
+%
+% \begin{documentation}\MakePrivateLetters
+%
+% \begin{abstract}
+% The \pdfboxes/ package allows to set up box settings (see
+% \url{http://www.prepressure.com/pdf/basics/page-boxes}) for PDF
+% files. Compatible with pdf\TeX, \XeTeX\ and \LuaTeX.
+% \end{abstract}
+%
+% \section{Prerequisites}
+% 
+%
+% \section{Package loading}
+% Load \pdfboxes/ as usual with +\usepackage{pdfboxes}+.
+%
+%
+% \section{Bugs and feedback}
+% \subsection{Known issues}
+% At the moment there are no known issues but I'm sure there are some, so let
+% me know if you find them \dots
+% \subsection{Feedback}
+% Any feedback on \pdfboxes/ is appreciated. You may use its GitHub repository at
+% \url{https://github.com/tweh/pdfboxes} to request features and report bugs or
+% send me an e-mail (\mail{mail@tobiw.de}).
+%
+%
+% \end{documentation}
+%
+% \begin{implementation}
+%
+% \section{Implementation}
+% \subsection{Start of package}
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%<@@=pdfboxes>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\ProvidesExplPackage
+  {\pdfboxesFileName}{\pdfboxesFileDate}{\pdfboxesFileVersion}{\pdfboxesFileDescription}
+%    \end{macrocode}
+%
+% \subsection{Required packages}
+%    \begin{macrocode}
+
+%    \end{macrocode}
+%
+% \subsection{End of package}
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%
+% \end{implementation}
+%
+% \PrintChanges^^A use makeindex -s gglo.ist -o pdfboxes-doc.gls pdfboxes-doc.glo
+%              ^^A use updated=YYYY-MM-DD or new=YYY-MM-DD in {documentation} section
+% \changes{v1.0}{2016/07/01}{Initial version}
+%
+% \PrintIndex^^A use: makeindex -s l3doc.ist -o pdfboxes-doc.ind pdfboxes-doc.idx 

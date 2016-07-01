@@ -1,0 +1,14 @@
+Name of your contribution:   pdfboxes
+Version number:              1.0
+Author:                      Tobias Weh
+Your Name:                   
+Your email:                  mail@tobiw.de
+Summary description:         Package to set up PDF box settings, e.g. for cropping
+Suggested CTAN directory:    /macros/latex/contrib/pdfboxes
+Type of Upload:              
+Changes:                     
+Administrative notes:        
+
+License Type:                LaTeX Project Public License (version 1.3)
+
+

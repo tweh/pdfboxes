@@ -1,0 +1,51 @@
+
+
+          P D F B O X E S
+
+
+          Tobias Weh
+          mail@tobiw.de
+          http://tobiw.de/en
+          github.com/tweh/pdfboxes
+
+
+
+The pdfboxes package allows to set up box settings (see
+http://www.prepressure.com/pdf/basics/page-boxes) for PDF
+files. Compatible with pdfTeX, XeTeX and LuaTeX.
+
+
+
+# License
+This material is subject to the LaTeX Project Public License.
+See http://mirror.ctan.org/help/Catalogue/licenses.lppl.html
+for the details of that license.
+
+
+# Files
+
+- README         : this file
+- pdfboxes.dtx   : source file
+- pdfboxes.ins   : install file
+- pdfboxes.pdf   : documentation
+
+
+# Installation
+It’s recommended to use your package manager to install the
+current version from CTAN. To install this package manually
+download alls files and then navigate to the folder that
+contains pdfboxes.ins.
+Run
+
+    latex pdfboxes.ins
+
+to get the file pdfboxes.sty which should be moved somewhere
+TeX can find it (e.g. $TEXMFHOME/tex/latex/pdfboxes/pdfboxes.sty)
+
+To typeset the manual run
+
+     pdflatex pdfboxes.dtx
+     makeindex -s gglo.ist -o pdfboxes.gls pdfboxes.glo
+     makeindex -s gind.ist -o pdfboxes.ind pdfboxes.idx
+     pdflatex pdfboxes.dtx
+     pdflatex pdfboxes.dtx
