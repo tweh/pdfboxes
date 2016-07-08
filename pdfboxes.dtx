@@ -101,6 +101,9 @@
 \newrobustcmd{\Star}{\meta{\textup{\texttt{*}}}}
 \newrobustcmd{\mail}[1]{\href{mailto:#1}{#1}}
 
+\newcommand{\GitHubIssue}[1]{%
+%   \href{https://github.com/tweh/pdfboxes/issues/#1}{Issue~\##1}%
+}
 
 \begin{document}
   \DocInput{\PDFBoxesFileName.dtx}
@@ -135,8 +138,10 @@
 %
 % \section{Bugs and feedback}
 % \subsection{Known issues}
-% At the moment there are no known issues but I'm sure there are some, so let
-% me know if you find them \dots
+% \begin{itemize}
+%    \item Incomaptible with \cls{memoir} (\GitHubIssue{1})
+% \end{itemize}
+% I'm sure there are some more, so let me know if you find them \dots
 % \subsection{Feedback}
 % Any feedback on \PDFBoxes/ is appreciated. You may use its GitHub repository at
 % \url{https://github.com/tweh/pdfboxes} to request features and report bugs or
