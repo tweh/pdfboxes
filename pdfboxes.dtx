@@ -83,42 +83,44 @@
 }
 \AtBeginDocument{\renewcommand*{\glossaryname}{Change History}}
 
-\def\pdfboxes/{{%
+\def\PDFBoxes/{{%
    \sffamily\bfseries\color{spotcolor}%
    pdfboxes%
 }}
-\def\pdfboxesLogo/{{%
-   \sffamily\bfseries
-   \fboxsep=0.2em
-   \fboxrule=0.6pt
-   \fbox{%
-      \fcolorbox{spotcolor}{spotcolor}{\color{white}\strut pdf}%
-      \fcolorbox{spotcolor}{white}{\color{spotcolor}\strut boxes}%
-   }%
+\def\PDFBoxesLogo/{{%
+   \texorpdfstring{%
+      \sffamily\bfseries
+      \fboxsep=0.2em
+      \fboxrule=0.6pt
+      \fbox{%
+         \fcolorbox{spotcolor}{spotcolor}{\color{white}\strut pdf}%
+         \fcolorbox{spotcolor}{white}{\color{spotcolor}\strut boxes}%
+      }%
+   }{pdfboxes}%
 }}
 \newrobustcmd{\Star}{\meta{\textup{\texttt{*}}}}
 \newrobustcmd{\mail}[1]{\href{mailto:#1}{#1}}
 
 
 \begin{document}
-  \DocInput{\pdfboxesFileName.dtx}
+  \DocInput{\PDFBoxesFileName.dtx}
 \end{document}
 %</driver>
 % \fi
 %
 %
-% \title{The \pdfboxesLogo/ package}
+% \title{The \PDFBoxesLogo/ package}
 %
 % \author{Tobias Weh\thanks{URL: \url{http://tobiw.de/en}, Mail: \mail{mail@tobiw.de}}}
 %
-% \date{Version \pdfboxesFileVersion\ -- Released \pdfboxesFileDate}
+% \date{Version \PDFBoxesFileVersion\ -- Released \PDFBoxesFileDate}
 %
 % \maketitle
 %
 % \begin{documentation}\MakePrivateLetters
 %
 % \begin{abstract}
-% The \pdfboxes/ package allows to set up box settings (see
+% The \PDFBoxes/ package allows to set up box settings (see
 % \url{http://www.prepressure.com/pdf/basics/page-boxes}) for PDF
 % files. Compatible with pdf\TeX, \XeTeX\ and \LuaTeX.
 % \end{abstract}
@@ -127,7 +129,8 @@
 % 
 %
 % \section{Package loading}
-% Load \pdfboxes/ as usual with +\usepackage{pdfboxes}+.
+% \PDFBoxes/ can beloaded as usual with +\usepackage{pdfboxes}+ but it must be loaded
+% after you made your page settings (e.g. after \pkg{geometry}) and after \pkg{tikz}.
 %
 %
 % \section{Bugs and feedback}
@@ -135,7 +138,7 @@
 % At the moment there are no known issues but I'm sure there are some, so let
 % me know if you find them \dots
 % \subsection{Feedback}
-% Any feedback on \pdfboxes/ is appreciated. You may use its GitHub repository at
+% Any feedback on \PDFBoxes/ is appreciated. You may use its GitHub repository at
 % \url{https://github.com/tweh/pdfboxes} to request features and report bugs or
 % send me an e-mail (\mail{mail@tobiw.de}).
 %
@@ -156,7 +159,7 @@
 %
 %    \begin{macrocode}
 \ProvidesExplPackage
-  {\pdfboxesFileName}{\pdfboxesFileDate}{\pdfboxesFileVersion}{\pdfboxesFileDescription}
+  {\PDFBoxesFileName}{\PDFBoxesFileDate}{\PDFBoxesFileVersion}{\PDFBoxesFileDescription}
 %    \end{macrocode}
 %
 % \subsection{Required packages}
