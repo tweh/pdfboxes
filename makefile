@@ -12,11 +12,14 @@ CLEANUP = find -E . -type f -regex "\./pdfboxes(.?|-doc)\.(aux|glo|gls|hd|idx|il
 
 # generate ZIP
 ${ZIP}: ${CONTRIBUTION}.dtx ${CONTRIBUTION}.ins ${PACKAGES} README ${CONTRIBUTION}.pdf
-	# ctanify
-	ctanify ${CONTRIBUTION}.ins ${PACKAGES} README ${CONTRIBUTION}.pdf
+	# ZIP
+	mkdir ${CONTRIBUTION}
+	cp ${CONTRIBUTION}.dtx ${CONTRIBUTION}.ins ${CONTRIBUTION}.pdf README ${CONTRIBUTION}
+	zip ${CONTRIBUTION}.zip ./${CONTRIBUTION}/*
 	# tidy up
 	$(CLEANUP)
 	rm ${CONTRIBUTION}.sty
+	rm -r ${CONTRIBUTION}
 	
 # generate *.sty files
 %.sty: ${CONTRIBUTION}.ins ${CONTRIBUTION}.dtx
